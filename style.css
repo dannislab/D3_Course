@@ -1,0 +1,279 @@
+
+/* ========================================
+   1. GLOBAL / BASE STYLES
+   ======================================== */
+body {
+  background-color: #FCFBF7;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #303437;
+  background-image: url("images/paper-texture.svg");
+  background-repeat: repeat;
+}
+
+
+/* ========================================
+   2. NAVIGATION
+   ======================================== */
+nav { 
+  padding: 24px 40px 0;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row; /* default is row*/
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: flex-end;
+}
+
+/* Navigation links */
+nav a {
+  font-size: 16px;
+  color: #60555D;
+  text-decoration:none;
+  transition: color 0.3s ease;
+}
+
+/* Hover interaction */
+nav a:hover {
+    color: #303437;
+
+}
+
+
+/* ========================================
+   3. HERO / INTRODUCTION
+   ======================================== */
+
+h1 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 64px;
+  font-weight: 400;
+  color: #303437;
+}
+
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #60555D;
+}
+
+.hero h1 {
+    margin-bottom: 12px;
+}
+
+.hero-tagline {
+    margin-top: 0;
+}
+
+
+
+/* ========================================
+   4. COLLECTION CARDS
+   ======================================== */
+
+
+#collection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+
+#collection h2,
+#featured-work h2,
+#find-me-online h2 {
+  text-align: center;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+  font-size: 40px;
+  color: #303437;
+  margin-bottom: 32px;
+}
+
+#collection h2::before {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 1px;
+    background-color: #B9AEB3;
+    margin: 0 auto 18px;
+}
+
+
+   .collection-cards {
+    display: flex;
+    gap: 24px;
+}
+
+.collection-card {
+    flex: 1;
+    min-width: 0;  /* Allow flex items to shrink below their content width */
+}
+
+.collection-card img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.collection-card img:hover {
+  transform: translateY(-4px);
+}
+
+
+.card-status {
+    font-size: 12px;
+    color: #60555D;
+    font-style: italic;
+    margin-top: 0px;
+}
+
+.card-label {
+    font-size: 12px;
+    color: #60555D;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+
+.collection-card h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: #303437;
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+
+
+
+/* ========================================
+   5. FEATURED WORK
+   ======================================== */
+
+#featured-work {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+.featured-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+#featured-work h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: #303437;
+}
+
+
+#featured-work p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #60555D;
+    max-width: 650px;
+    margin-bottom: 24px;
+}
+
+#featured-work iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+}
+
+
+/* ========================================
+   6. FIND ME ONLINE
+   ======================================== */
+
+#find-me-online {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+}
+
+
+.online-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.online-links a {
+    color: #303437;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.online-links a:hover {
+    color: #60555D;
+}
+
+.online-links a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.online-links img {
+    width: 20px;
+    height: 20px;
+}
+
+
+@media (max-width: 700px) {
+      nav {
+        padding: 20px 12px 0;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 14px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+    padding: 40px 20px;
+    } 
+
+    .collection-cards {
+        flex-direction: column;
+    }
+
+    .online-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    }
+
+    #featured-work {
+        padding: 0 20px 48px;
+    }
+}
+
+@media (min-width: 1101px) {
+    .featured-content {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        gap: 32px;
+        align-items: center;
+    }
+}
