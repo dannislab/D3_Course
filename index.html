@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3 Course | Danni Liu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&amp;display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================
+           1. GLOBAL / BASE STYLES
+           (same colours and texture as the chapter pages)
+           ======================================== */
+        body {
+            background-color: #FCFBF7;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #303437;
+            background-image: url("00_webdev_foundation/images/paper-texture.svg");
+            background-repeat: repeat;
+            margin: 0;
+        }
+
+        /* ========================================
+           2. NAVIGATION
+           ======================================== */
+        nav {
+            padding: 24px 40px 0;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            font-size: 16px;
+            color: #60555D;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #303437;
+        }
+
+        /* ========================================
+           3. HERO / INTRODUCTION
+           ======================================== */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero-eyebrow {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #60555D;
+        }
+
+        .hero h1 {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 64px;
+            font-weight: 400;
+            color: #303437;
+            margin-bottom: 12px;
+        }
+
+        .hero-tagline {
+            margin-top: 0;
+        }
+
+        /* ========================================
+           4. CHAPTER CARDS
+           ======================================== */
+        #chapters {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px 80px;
+        }
+
+        #chapters h2 {
+            text-align: center;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-weight: 400;
+            font-size: 40px;
+            color: #303437;
+            margin-bottom: 32px;
+        }
+
+        /* Small line above the heading, matching "The Collection" */
+        #chapters h2::before {
+            content: "";
+            display: block;
+            width: 48px;
+            height: 1px;
+            background-color: #B9AEB3;
+            margin: 0 auto 18px;
+        }
+
+        .chapter-cards {
+            display: flex;
+            gap: 24px;
+        }
+
+        .chapter-card {
+            flex: 1;
+            min-width: 0;
+            display: block;
+            border-top: 1px solid #B9AEB3;
+            padding-top: 20px;
+            color: inherit;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        /* Only cards that link somewhere lift on hover */
+        a.chapter-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Chapters not started yet look softer */
+        .chapter-card.upcoming {
+            opacity: 0.6;
+        }
+
+        .card-label {
+            font-size: 12px;
+            color: #60555D;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+
+        .chapter-card h3 {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-weight: 400;
+            font-size: 22px;
+            color: #303437;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #60555D;
+            margin: 0 0 12px;
+        }
+
+        .card-status {
+            font-size: 12px;
+            color: #60555D;
+            font-style: italic;
+            margin-top: 0;
+        }
+
+        /* ========================================
+           5. MOBILE
+           ======================================== */
+        @media (max-width: 700px) {
+            nav {
+                padding: 20px 12px 0;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 14px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            #chapters {
+                padding: 0 20px 48px;
+            }
+
+            .chapter-cards {
+                flex-direction: column;
+                gap: 32px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#chapters">Chapters</a></li>
+                <li><a href="https://github.com/dannislab/D3_Course" target="_blank">GitHub</a></li>
+                <li><a href="https://www.dashbyteco.com" target="_blank">DashByte Co.</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero">
+            <p class="hero-eyebrow">THE SKETCHBOOK</p>
+            <h1>D3 Course</h1>
+            <p class="hero-tagline">Learning D3.js, one chapter at a time</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="chapters">
+            <h2>The Chapters</h2>
+
+            <div class="chapter-cards">
+
+                <!-- A finished chapter: the whole card is a link to its folder -->
+                <a class="chapter-card" href="00_webdev_foundation/">
+                    <p class="card-label">CHAPTER 00</p>
+                    <h3>WEBDEV FOUNDATION</h3>
+                    <p class="card-description">HTML, CSS and layout basics, built as a personal landing page.</p>
+                    <p class="card-status">View chapter →</p>
+                </a>
+
+                <!-- An upcoming chapter: not a link yet -->
+                <article class="chapter-card upcoming">
+                    <p class="card-label">CHAPTER 01</p>
+                    <h3>REACT FOUNDATION</h3>
+                    <p class="card-description">Components and building blocks for interactive pages.</p>
+                    <p class="card-status">Coming Soon</p>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
