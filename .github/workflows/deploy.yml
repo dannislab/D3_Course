@@ -31,7 +31,9 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: 01_react_foundation/pokemon_collection/package-lock.json
+          cache-dependency-path: |
+            01_react_foundation/pokemon_collection/package-lock.json
+            02_d3_intro/package-lock.json
 
       - name: Build Pokemon Collection
         working-directory: 01_react_foundation/pokemon_collection
@@ -39,12 +41,20 @@ jobs:
           npm ci
           npm run build
 
+      - name: Build D3 Introduction
+        working-directory: 02_d3_intro
+        run: |
+          npm ci
+          npm run build  
+
       - name: Assemble website
         run: |
           mkdir -p _site/01_react_foundation/pokemon_collection
+          mkdir -p _site/02_d3_intro
           cp index.html _site/
           cp -r 00_webdev_foundation _site/
           cp -r 01_react_foundation/pokemon_collection/dist/. _site/01_react_foundation/pokemon_collection/
+          cp -r 02_d3_intro/dist/. _site/02_d3_intro/
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

@@ -1,0 +1,130 @@
+
+:root {
+  background-color: #FCFBF7;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #60555D;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: #0F4C5C;
+  text-decoration: underline;
+}
+
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: #303437;
+  margin: 45px 0 4px;
+}
+
+.page-header {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+.section-label {
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  color: #60555D;
+  margin: 24px 0 16px;
+}
+
+
+
+/* 1. SUMMARY STATISTICS */
+.summary-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 32px auto 12px;
+  max-width: 900px;
+  width:100%;
+}
+
+.stat-card {
+  background-color: #F5F2EC;
+  border: 1px solid #DDD5CE;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #60555D;
+  margin: 0 0 12px;
+}
+
+.stat-value {
+  font-family: Georgia, serif;
+  font-size: 32px;
+  color: #303437;
+  margin: 0;
+}
+
+.stat-detail {
+  font-size: 13px;
+  color: #60555D;
+  margin: 6px 0 0;
+}
+
+/* 2. CHART SECTION */
+.chart-section {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* 3. DATA SOURCE NOTE */
+.chart-note {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #60555D;
+  margin: 12px 0 32px;
+}
+
+/* 4. RESPONSIVE LAYOUT */
+@media (max-width: 768px) {
+#root {
+    padding: 0 25px;
+  }
+
+  h1 {
+    font-size: 32px;
+    line-height: 1.15;
+    margin-top: 32px;
+  }
+
+
+  .summary-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-scroll {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.chart-scroll svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+}
